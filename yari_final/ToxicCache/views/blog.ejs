@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="unsafe-url">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/style/home_style.css">
+  <link rel="icon" href="/img/logo.png">
+  <style>
+    body,
+    html {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 1px 16px;
+      height: 1000px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+
+    .powered-by {
+      text-align: center;
+      margin: 20px 0;
+      color: rgb(56, 56, 56);
+      font-size: 14px;
+    }
+
+
+
+    .blog-post {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+
+    header,
+    .content,
+    footer {
+      width: 80%;
+      max-width: 1200px;
+      /* Maksimum genişlik */
+      margin: 20px auto;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    .button-panel {
+      display: flex;
+      justify-content: center;
+      border: 1px solid #222323;
+      background-color: #222323;
+    }
+
+
+
+    .button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #222323;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #3f3e3e;
+    }
+
+    a {
+      text-decoration: none;
+      color: #9c1e22;
+      transition-duration: 50ms;
+      transition: ease-in-out;
+    }
+
+    a:hover {
+      color: black
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a href="/chat"><img src="/img/live-chat.png" alt="Chat"></a>
+    <a href="/profile"><img src="/img/account_icon.png" alt="Profile"></a>
+    <a href="/"><img src="/img/icons8-home-50.png" alt="Home"></a>
+    <a href="/logout"><img src="/img/logout.png" alt="Logout"></a>
+  </div>
+
+  <header>
+    <img src="//<%- host %>/img/blog_logo.png" alt="Logo" style="max-width: 100%; height: auto;">
+  </header>
+
+  <div id="content" class="content">
+    <div class="button-panel">
+      <a href="#" class="button">Ana Sayfa</a>
+      <a href="#" class="button">Siber Güvenlik</a>
+      <a href="#" class="button">Linux & Open Source</a>
+      <a href="#" class="button">Hakkımda</a>
+    </div>
+
+    <hr>
+
+    <div>
+      <h1><a
+          href="https://medium.com/@can46ibrahimcan/linux-%C3%B6zg%C3%BCrl%C3%BC%C4%9F%C3%BCn-ve-g%C3%BCc%C3%BCn-i%CC%87%C5%9Fletim-sistemi-e81875e64048">Linux:
+          Özgürlüğün ve Gücün İşletim Sistemi</a></h1>
+      <p>27-11-2024 by Cibrx1453</p>
+      <p>Linux: Özgürlüğün ve Gücün İşletim Sistemi
+        Linux, özgürlüğü, güvenliği ve gücü bir arada sunan açık kaynaklı bir işletim sistemi çekirdeğidir.
+        Geliştiricilerden sistem yöneticilerine, sıradan kullanıcılardan teknoloji tutkunlarına...</p>
+
+    </div>
+    <hr>
+
+    <div>
+      <h1><a
+          href="https://medium.com/@can46ibrahimcan/web-cache-poisoning-ve-unkeyed-header-ile-g%C3%BCvenlik-a%C3%A7%C4%B1klar%C4%B1n%C4%B1n-i%CC%87stismar%C4%B1-portswigger-lab-551d720c7d4a">Web
+          Cache Poisoning ve Unkeyed Header ile Güvenlik Açıklarının İstismarı</a></h1>
+      <p>27-11-2024 by Cibrx1453</p>
+      <p>Web Cache Poisoning, web uygulamalarının önbellek yönetimindeki zafiyetleri kullanarak zararlı içeriklerin
+        diğer kullanıcılar tarafından görüntülenmesini sağlayan bir güvenlik saldırısıdır. Bu saldırı, özellikle web
+        uygulamaları yoğun trafik aldığında, performans artırımı için kullanılan cache (önbellek) mekanizmalarını hedef
+        ...</p>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p style="text-align: center;">&copy; 2024 Cibrx Security. Tüm hakları saklıdır.</p>
+  </footer>
+
+</body>
+
+</html>

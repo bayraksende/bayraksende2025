@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charSet="utf-8"/>
+        <meta name="title" content="Blog Cibrx"/>
+        <link rel="icon" href="/img/logo.png">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Blog Cibrx</title>
+        <meta name="description" content="Basic messaging app made by cibrx."/>
+        <link rel="stylesheet" href="/style/a28c000c17a45fb9.css" data-n-g=""/>
+    <style>
+        #description {
+            width: fit-content;
+            border-right: 2px solid orange;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        /* The typing effect */
+        #typing-text {
+            font: bold;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 5s steps(50, end), blink-caret .75s step-end infinite;
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }     
+        #__next {
+            position: relative;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border-radius: 8px;
+            padding: 5px;
+            width: auto;
+            z-index: 1000;
+        }
+
+        .language-selector select {
+            background-color: transparent;
+            color: white;
+            border: none;
+            outline: none;  
+            appearance: none; 
+        }
+
+        .language-selector select:focus {
+            background-color: rgba(0,0,0,1);
+        }
+
+    </style>
+
+</head>
+        <div id="__next">            
+            <div class="flex min-h-full w-screen flex-col sm:supports-[min-height:100dvh]:min-h-[100dvh] md:grid md:grid-cols-2 lg:grid-cols-[60%_40%]">
+                <div class="relative hidden flex-1 flex-col justify-center px-5 pt-8 text-[#FE7600] dark:text-[#D292FF] md:flex md:px-6 md:py-[22px] lg:px-8">
+                    <nav class="left-0 top-8 flex w-full px-6 sm:absolute md:top-[22px] md:px-6 lg:px-8">
+                        <h1 aria-label="Alperen Chat">
+                            <div class="flex cursor-default items-center text-[20px] font-bold leading-none lg:text-[22px]">
+                                <div>
+                                    Blog Cibrx                                    <span class="font-circle">●</span>
+                                </div>
+                            </div>
+                        </h1>
+                    </nav>
+                    <div class="flex flex-col text-[32px] leading-[1.2] md:text-[40px]" aria-hidden="true">
+                        <div class="absolute left-0 top-1/2 flex w-full flex-col px-5 transition-[transform,opacity] duration-500 md:pl-6 md:pr-8 lg:pl-8 lg:pr-10 opacity-100 translate-y-[calc(-50%-1em)] delay-[500ms]">
+                            <div class="description">
+                                <h1 id="typing-text" class="typing-text">Siber Güvenlik alanında kendimi nasıl geliştirebilirim ?</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex grow flex-col items-center justify-between bg-white px-5 py-8 text-black dark:bg-black dark:text-white sm:rounded-t-[30px] md:rounded-none md:px-6">
+                    <nav class="flex w-full justify-start px-6 pb-8 md:hidden md:px-6 lg:px-8">
+                        <h1 aria-label="Alperen Chat">
+                            <div class="flex cursor-default items-center text-[20px] font-bold leading-none lg:text-[22px]">
+                                <div>
+                                    Blog Cibrx                                    <span class="font-circle">●</span>
+                                </div>
+                            </div>
+                        </h1>
+                    </nav>
+                    <div class="relative flex w-full grow flex-col items-center justify-center">
+                        <h2 class="text-center text-[20px] leading-[1.2] md:text-[32px] md:leading-8">
+                            <img src="/img/logo.png" width="200" height="200" style="border-radius: 10px;"><br>
+                            Başlayalım
+                        </h2>
+                        <div class="mt-5 w-full max-w-[440px]">
+                            <div class="grid gap-x-3 gap-y-2 sm:grid-cols-2 sm:gap-y-0">
+                                <a href="/auth/login" class="relative flex h-12 items-center justify-center rounded-md text-center text-base font-medium bg-[#3C46FF] text-[#fff] hover:bg-[#0000FF]" data-testid="login-button">
+                                    <div class="relative -top-[1px]">
+                                        Giriş Yap                                  </div>
+                                </a>
+                                <a href="/auth/register" class="relative flex h-12 items-center justify-center rounded-md text-center text-base font-medium bg-[#3C46FF] text-[#fff] hover:bg-[#0000FF]">
+                                    <div class="relative -top-[1px]">
+                                        Kayıt Ol                                  </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10 flex flex-col justify-center ">
+                        <div class="flex justify-center text-[#cdcdcd] md:mb-3">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            !function() {
+                try {
+                    var d = document.documentElement
+                      , c = d.classList;
+                    c.remove('light', 'dark');
+                    var e = localStorage.getItem('theme');
+                    if ('system' === e || (!e && true)) {
+                        var t = '(prefers-color-scheme: dark)'
+                          , m = window.matchMedia(t);
+                        if (m.media !== t || m.matches) {
+                            d.style.colorScheme = 'dark';
+                            c.add('dark')
+                        } else {
+                            d.style.colorScheme = 'light';
+                            c.add('light')
+                        }
+                    } else if (e) {
+                        c.add(e || '')
+                    }
+                    if (e === 'light' || e === 'dark')
+                        d.style.colorScheme = e
+                } catch (e) {}
+            }()
+
+            
+            document.addEventListener("DOMContentLoaded", function() {
+            var typingText = document.getElementById("typing-text");
+            var animationDuration = 5000; // 5 saniye, CSS'deki animasyon süresiyle eşleşmeli
+
+            setTimeout(function() {
+                typingText.style.animation = "none";
+                typingText.parentNode.style.borderRight = "none";
+            }, animationDuration);
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+✓ Misafir kullanıcıyla admine mesaj gönderme
+✓ admin panelinde tüm mesajları sunma
+✓ mesaj için varsayılan özellikler ekleme
+✓ Varsayılan özellikler ile kullanıcı girdisini birleştirme
+✓ isAdmin özelliği true olan istekleri admin paneline kabul etme
+X güvenlik testi yapma

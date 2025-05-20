@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="/style/login_style.css">
+    <link rel="icon" href="/img/logo.png">
+</head> 
+    <div class="container">
+        <h2>Kayıt Ol</h2>
+        <form id="registerForm">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" name="username" id="username" required><br><br>
+            <label for="password">Parola:</label>
+            <input type="password" name="password" id="password" required><br><br>
+            <input type="button" name="Sign Up" onclick="submitForm()" value="Kayıt Ol">
+        </form>
+        <div class="error">
+                    </div>
+        <div class="link">
+            Zaten bir hesabın var mı? <a href="/auth/login">Giriş Yap</a>
+            <label for="register_status" id="register_status" style="color: red;"></label>
+        </div>
+        
+        <div class="homepage-button">
+            <a href="/">Ana Sayfa</a>
+        </div>
+    </div>
+    <script>
+        function submitForm(){
+            var form = document.getElementById("registerForm")
+            var formData = new FormData(form)
+            fetch("/auth/register",{
+                method: "POST",
+                headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success){
+                    window.location.href = "/auth/login"
+                } else document.getElementById("register_status").innerText = data.message
+            })
+            .catch(err => {
+                console.error(err)
+            })
+        }
+        document.getElementById('token').addEventListener('keyup', function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitForm();
+        }
+        });
+    </script>
+</body>
+</html>

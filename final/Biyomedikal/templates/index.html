@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section" style="background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80') no-repeat center center; background-size: cover; color: white; padding: 50px 0;">
+    <div class="container text-center">
+        <h1 style="font-size: 3rem; font-weight: bold;">Urbatek Biyomedikal</h1>
+        <p class="lead" style="font-size: 1.5rem;">Yenilikçi Tıbbi Teknolojiler</p>
+    </div>
+</div>
+
+<!-- Services Section -->
+<section id="services" class="container mb-5">
+    <h2 class="text-center mb-4">Hizmetlerimiz</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card service-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-body">
+                    <h5 class="card-title">Danışmanlık</h5>
+                    <p class="card-text">Uzmanlarımızdan profesyonel danışmanlık hizmeti alın.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card service-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-body">
+                    <h5 class="card-title">Teknik Destek</h5>
+                    <p class="card-text">7/24 teknik destek hizmetimizden yararlanın.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card service-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-body">
+                    <h5 class="card-title">Eğitim</h5>
+                    <p class="card-text">Ürünlerimiz hakkında kapsamlı eğitimler alın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="container mb-5">
+    <h2 class="text-center mb-4">Ürünlerimiz</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card product-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80" class="card-img-top" alt="Kalp Pili" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">CardioPlus X100</h5>
+                    <p class="card-text">Yeni nesil kalp pili teknolojisi</p>
+                    <a href="{{ url_for('product_detail', product_id='URB-KP-001') }}" class="btn btn-primary">Detaylar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card product-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80" class="card-img-top" alt="İnsülin Pompası" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">DiabetCare Pro</h5>
+                    <p class="card-text">Akıllı insülin pompası sistemi</p>
+                    <a href="{{ url_for('product_detail', product_id='URB-IP-002') }}" class="btn btn-primary">Detaylar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card product-card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80" class="card-img-top" alt="Beyin İmplantı" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">NeuroTech X</h5>
+                    <p class="card-text">Gelişmiş beyin implantı teknolojisi</p>
+                    <a href="{{ url_for('product_detail', product_id='URB-PROTO-X') }}" class="btn btn-primary">Detaylar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Chat Section -->
+<section id="support" class="container mb-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Teknik Destek</h2>
+            
+            <div class="card chat-container" id="chatContainer" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-body">
+                    <div class="system-message">
+                        Urbatek Sağlık Sistemi'ne Hoş Geldiniz.<br>
+                        Lütfen önce kimlik doğrulaması yapın.<br>
+                        Kullanıcı türleri: hemsire, doktor, admin
+                    </div>
+                    {% for message in chat_history %}
+                        <div class="message {% if message.user %}user-message{% else %}bot-message{% endif %}">
+                            {% if message.user %}
+                                <strong>Siz:</strong> {{ message.user }}
+                            {% else %}
+                                <strong>URBATEK-BOT:</strong> {{ message.bot }}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="input-group mt-3">
+                <input type="text" id="userInput" class="form-control" placeholder="Mesajınızı yazın..." style="border-radius: 20px 0 0 20px;">
+                <button class="btn btn-primary" onclick="sendMessage()" style="border-radius: 0 20px 20px 0;">Gönder</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Chat fonksiyonları
+    function scrollToBottom() {
+        const chatContainer = document.getElementById('chatContainer');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function appendMessage(message, isUser) {
+        const chatContainer = document.getElementById('chatContainer');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        messageDiv.innerHTML = `<strong>${isUser ? 'Siz' : 'URBATEK-BOT'}:</strong> ${message}`;
+        chatContainer.appendChild(messageDiv);
+        scrollToBottom();
+    }
+
+    function sendMessage() {
+        const userInput = document.getElementById('userInput');
+        const message = userInput.value.trim();
+        
+        if (message) {
+            appendMessage(message, true);
+            userInput.value = '';
+            
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    appendMessage(data.response, false);
+                } else {
+                    appendMessage('Bir hata oluştu: ' + data.message, false);
+                }
+            })
+            .catch(error => {
+                appendMessage('Sunucu hatası: ' + error, false);
+            });
+        }
+    }
+
+    document.getElementById('userInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    window.onload = function() {
+        scrollToBottom();
+        
+        // Check if console_message exists and log it
+        {% if console_message %}
+        console.log("{{ console_message }}");
+        {% endif %}
+    };
+</script>
+{% endblock %} 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbatek - Sepet</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="brand">Urbatek</a>
+            </div>
+            <div id="snackbar"></div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                    Ana Sayfa
+                </a>
+                <a href="/cart" class="nav-link active">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-7 2h7"></path>
+                        <path d="M3 3h2l.5 3m0 0L8 14h12l3-8H6.5"></path>
+                    </svg>
+                    Sepet
+                </a>
+                <a href="/profile" class="nav-link">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profil
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1><%= flag %></h1>
+        <div id="card-header">
+            <div>
+                <h2>Sepetiniz</h2>
+            </div>
+            <div>
+                <button id="checkout" class="checkout-button">Ödeme Yap</button>
+            </div>
+        </div>
+        <div id="cart-items" class="cart-container"></div>
+        <div id="cart-summary" class="cart-summary"></div>
+        <div class="coupon-section">
+            <label for="coupon-code">Kupon Kodu:</label>
+            <input type="text" id="coupon-code" placeholder="Kupon kodunu girin" />
+            <button id="apply-coupon">Uygula</button>
+        </div>
+        </main>
+        <div style="text-align: center; font-size: 18px; color: #333; background-color: #e0f7fa; padding: 20px; border-radius: 8px; max-width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 0 auto;">
+            <p style="font-size: 18px; color: #333; background-color: #e0f7fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              Urbatek olarak sitemizi her gün geliştirmekteyiz. Uygulamamızda henüz sanal pos entegrasyonu yapılmamıştır, bu sebepten ötürü ödemeler yalnızca <span style="font-weight: bold; color: #00796b;">kupon kodu</span> yolu ile yapılabilmektedir. Bizi tercih ettiğiniz için teşekkür ederiz.
+            </p>
+        </div>
+    <script src="js/cart.js"></script>
+    <script src="js/cart-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbatek Çalışan Portalı</title>
+    <link rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="/" class="nav-logo">Urbatek Portal</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Ana Sayfa</a>
+                <a href="/profil" class="nav-link">Profil</a>
+                <!-- <a href="http://<%= host %>/admin" class="nav-link active">Admin</a> -->
+            </div>
+        </div>  
+    </nav>
+
+    <main class="container">
+        <div class="grid">
+            <div class="card">
+                <h2 class="card-title">Şirket Haberleri</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <img src="/img/urun1.png" alt="Q1 Company Results" class="news-image">
+                        <h3>2025 İlk Çeyrek Sonuçları</h3>
+                        <p>Şirketimizin ilk ürünü olan URBA K1'in 0.32 versiyonu yayınlanmıştır.</p>
+                        <span class="date">2025-04-15</span>
+                    </div>
+                    <div class="news-item">
+                        <img src="/img/sponsor.jpg" alt="New Office Opening" class="news-image">
+                        <h3>Yeni Ofis Açılışı</h3>
+                        <p>Teknopark MTAL ile sponsorluğumuz başlamıştır.</p>
+                        </p>
+                        <span class="date">2025-3-24</span>
+                    </div>
+                </div>  
+            </div>
+            <div class="card">
+                <h2 class="card-title">3 Aylık Hedeflerimiz</h2>
+                <div class="card">
+                    <ul class="task-list">
+                        <li>1. Çalışan memnuniyetini %15 artırmak.</li>
+                        <li>2. Yeni müşteri kazanım oranını %20 yükseltmek.</li>
+                        <li>3. Şirket içi eğitim programlarını tamamlamak.</li>
+                        <li>4. Dijital dönüşüm projelerini hayata geçirmek.</li>
+                        <li>5. Çevre dostu uygulamaları artırarak karbon ayak izimizi azaltmak.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="card">
+                <h2 class="card-title">Yöneticiye Geri Bildirim Gönder</h2>
+                <div class="card">
+                    <form id="feedbackForm" class="feedback-form">
+                        <textarea name="feedback" placeholder="Düşüncelerinizi bizimle paylaşın" class="feedback-input"></textarea>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="card">
+                <h2 class="card-title">Hızlı Erişim</h2>
+                <div class="card">
+                    <ul class="quick-links">
+                        <li><a href="https://urbatek.tr">Urbatek sitesi</a></li>
+                    </ul>
+                </div>           
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

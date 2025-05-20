@@ -1,0 +1,666 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;  
+    padding: 10px;
+    width: auto; 
+    height: 88vh; 
+    margin: 2.5vh auto;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-panel {
+    flex: 0.2;
+    padding: 10px;
+    background-color: rgba(230, 230, 230, 0.9); 
+    position: relative;
+    border-radius: 3px;
+    max-width: 300px;
+}
+
+.right-panel {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85); 
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#search-user {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: #2196f3;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 3px;
+}
+
+#user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#user-list li {
+    padding: 10px;
+    border-bottom: 1px solid #2c3e50;
+    cursor: pointer;
+    color: #ecf0f1;
+}
+
+.group-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px;
+    height: 20px;
+}
+
+
+.indexAd {
+    text-align: center;
+    
+}
+
+.profile-logout-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    height: 20px;
+}
+
+#username {
+    margin-right: 10px;
+}
+
+#profile-logout-section h2 {
+    color: #1daaaa;
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+    color: #2c3e50;
+}
+
+#messagesList li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    white-space: normal;
+}
+
+form {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.label, .input, .button {
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+}
+
+.chat-history button {
+    background-color: rgb(78, 96, 112);
+    border-radius: 7px;
+    text-align: left;   
+    height: 30px;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.chat-button {  
+    background-color: rgb(216, 109, 51);
+    border-radius: 3px;
+    text-align: left;   
+    height: 55px;
+    flex: 1;
+    width: 99%;
+    padding-left: 3px;
+    padding-top: 3px;   
+    margin-bottom: 5px; 
+    cursor: pointer;
+}
+
+.chat-button-name {
+    font-size:large;
+    display: block;
+}
+
+.chat-button-last-msg {
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;   /* Hide excess text */
+    text-overflow: ellipsis; /* Add ellipsis (...) */
+    font-size: medium;
+    display: block;
+}
+
+.chat-button-date {
+    padding-right: 5px;
+    font-size:smaller;
+    text-align: right;
+    display: block;
+}
+
+.input {
+    width:800px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.messages {
+    flex: 1;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    background-color: ;
+}
+
+.messages ul {
+    padding-inline-start: 0px;
+}
+
+.messagesList {
+    list-style: none;
+    margin: 0;
+}
+
+
+.senderMessage {
+    width: max-content;
+    background-color: #a8e6cf;
+    padding: 5px;
+    margin-bottom: 8px;
+    margin-left: auto; /* Sağa yaslamak için */
+    margin-right: 10px; /* Sağ tarafında biraz boşluk bırak */
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 50px; /* min-width değerini düzelttim */
+}
+
+.receiverMessage {
+    width: max-content;
+    background-color: #7747fa;
+    padding: 5px;
+    margin-bottom: 8px;
+    margin-right: auto; /* Sola yaslamak için */
+    margin-left: 10px; /* Sol tarafında biraz boşluk bırak */
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 50px; /* min-width değerini düzelttim */
+}
+
+.user-list {
+    overflow-y: auto;
+    display: flex;
+}
+
+
+#user-list button {
+    background-color: #d9bd71;
+    border-radius: 7px;
+    text-align: left;
+    height: 30px;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.sender {
+    font-weight: bold;
+    margin-right: 100px;
+}
+
+.dateNow {
+    font-size: 0.8em;
+    color: #777;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.readAt {
+    font-size: 0.8em;
+    color: #393a3f;
+    display: flex;
+    margin-right: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 992px) {
+    .messages{
+        height: 300px;
+    }
+}
+
+.typing-bubble {
+    background-color:#1daaaa;
+    padding:8px 8px;
+    -webkit-border-radius: 20px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius: 20px;
+    -moz-border-radius-bottomleft: 2px;
+    border-radius: 20px;
+    border-bottom-left-radius: 2px;
+    display:inline-block;
+}
+  
+.typing {
+    padding-left: 5px;
+    align-items: center;
+    display: flex;
+    height: 17px;
+}
+
+.typing .dot {
+    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    background-color: #6CAD96 ;
+    border-radius: 50%;
+    height: 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 7px;
+    display: inline-block;
+}
+.typing .dot:nth-child(1) {
+    animation-delay: 200ms;
+}
+.typing .dot:nth-child(2) {
+    animation-delay: 300ms;
+}
+.typing .dot:nth-child(3) {
+    animation-delay: 400ms;
+}
+.typing .dot:last-child {
+    margin-right: 0;
+}body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;  
+    padding: 10px;
+    width: auto; 
+    height: 88vh; 
+    margin: 2.5vh auto;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-panel {
+    flex: 0.2;
+    padding: 10px;
+    background-color: rgba(230, 230, 230, 0.9); 
+    position: relative;
+    border-radius: 3px;
+    max-width: 300px;
+}
+
+.right-panel {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85); 
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#search-user {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: #2196f3;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 3px;
+}
+
+#user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#user-list li {
+    padding: 10px;
+    border-bottom: 1px solid #2c3e50;
+    cursor: pointer;
+    color: #ecf0f1;
+}
+
+.group-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px;
+    height: 20px;
+}
+
+
+.indexAd {
+    text-align: center;
+    
+}
+
+.profile-logout-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    height: 20px;
+}
+
+#username {
+    margin-right: 10px;
+}
+
+#profile-logout-section h2 {
+    color: #1daaaa;
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+    color: #2c3e50;
+    margin: auto;
+}
+
+
+form {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.label, .input, .button {
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+}
+
+.chat-history button {
+    background-color: rgb(78, 96, 112);
+    border-radius: 7px;
+    text-align: left;   
+    height: 30px;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.chat-button {  
+    background-color: rgb(216, 109, 51);
+    border-radius: 3px;
+    text-align: left;   
+    height: 55px;
+    flex: 1;
+    width: 99%;
+    padding-left: 3px;
+    padding-top: 3px;   
+    margin-bottom: 5px; 
+}
+
+.chat-button-name {
+    font-size:large;
+    display: block;
+}
+
+.chat-button-last-msg {
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;   /* Hide excess text */
+    text-overflow: ellipsis; /* Add ellipsis (...) */
+    font-size: medium;
+    display: block;
+}
+
+.chat-button-date {
+    padding-right: 5px;
+    font-size:smaller;
+    text-align: right;
+    display: block;
+}
+
+.input {
+    width:800px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.messages {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+}
+
+
+.user-list {
+    overflow-y: auto;
+    display: flex;
+}
+
+
+#user-list button {
+    background-color: #d9bd71;
+    border-radius: 7px;
+    text-align: left;
+    height: 30px;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.sender {
+    font-weight: bold;
+    margin-right: 100px;
+}
+
+.dateNow {
+    font-size: 0.8em;
+    color: #777;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 992px) {
+    .messages{
+        height: 300px;
+    }
+}
+
+.typing-bubble {
+    background-color:#1daaaa;
+    padding:8px 8px;
+    -webkit-border-radius: 20px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius: 20px;
+    -moz-border-radius-bottomleft: 2px;
+    border-radius: 20px;
+    border-bottom-left-radius: 2px;
+    display:inline-block;
+}
+  
+.typing {
+    padding-left: 5px;
+    align-items: center;
+    display: flex;
+    height: 17px;
+}
+
+.typing .dot {
+    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    background-color: #6CAD96 ;
+    border-radius: 50%;
+    height: 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 7px;
+    display: inline-block;
+}
+.typing .dot:nth-child(1) {
+    animation-delay: 200ms;
+}
+.typing .dot:nth-child(2) {
+    animation-delay: 300ms;
+}
+.typing .dot:nth-child(3) {
+    animation-delay: 400ms;
+}
+.typing .dot:last-child {
+    margin-right: 0;
+}
+
+@keyframes mercuryTypingAnimation {
+    0% {
+    transform: translateY(0px);
+    background-color:#6CAD96;
+    }
+    28% {
+    transform: translateY(-7px);
+    background-color:#9ECAB9;
+    }
+    44% {
+    transform: translateY(0px);
+    background-color: #B5D9CB;
+    }
+}
+
+
+
+@keyframes mercuryTypingAnimation {
+    0% {
+    transform: translateY(0px);
+    background-color:#6CAD96;
+    }
+    28% {
+    transform: translateY(-7px);
+    background-color:#9ECAB9;
+    }
+    44% {
+    transform: translateY(0px);
+    background-color: #B5D9CB;
+    }
+}
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 200px; /* Metin alanının genişliği */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Metin kutunun dışına taşarsa ... göster */
+
+}
+
+
+.message{
+    word-wrap: break-word;
+}
+
+.img {
+    max-width: 500px;
+    max-height: 500px;
+}

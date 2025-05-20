@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: rgb(243, 244, 246);
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            padding: 1rem;
+        }
+
+        .header-content {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: rgb(17, 24, 39);
+        }
+
+        /* Main content styles */
+        .main-content {
+            max-width: 64rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .profile-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-picture {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 9999px;
+            background: linear-gradient(to bottom right, rgb(239, 246, 255), rgb(219, 234, 254));
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: rgb(17, 24, 39);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-title {
+            font-size: 1.25rem;
+            color: rgb(75, 85, 99);
+            font-weight: 500;
+        }
+
+        .profile-bio {
+            color: rgb(55, 65, 81);
+            margin: 1.5rem 0;
+            line-height: 1.625;
+        }
+
+        .edit-button {
+            background-color: rgb(59, 130, 246);
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .edit-button:hover {
+            background-color: rgb(37, 99, 235);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background-color: rgb(249, 250, 251);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: background-color 0.2s;
+        }
+
+        .stat-card:hover {
+            background-color: rgb(243, 244, 246);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgb(17, 24, 39);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgb(75, 85, 99);
+        }
+
+        @media (min-width: 768px) {
+            .profile-header {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .profile-picture {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Profil</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <i data-lucide="user" style="width: 5rem; height: 5rem; color: rgb(96, 165, 250);"></i>
+                </div>
+                
+                <div class="profile-info">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h1 class="profile-name"><%= user %></h1>
+                            <h2 class="profile-title"><%= role %></h2>
+                        </div>
+                        <button class="edit-button">Edit Profile</button>
+                    </div>
+                    
+                    <p class="profile-bio">
+                        <%- flag %>
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i data-lucide="file-text" style="width: 2rem; height: 2rem; color: rgb(59, 130, 246);"></i>
+                            <div>
+                                <div class="stat-number"><%= pub %></div>
+                                <div class="stat-label">Yayınlanan Yazılar</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <i data-lucide="users-2" style="width: 2rem; height: 2rem; color: rgb(34, 197, 94);"></i>
+                            <div>
+                                <div class="stat-number"><%= followers %></div>
+                                <div class="stat-label">Aktif Takipçiler</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <i data-lucide="book-open" style="width: 2rem; height: 2rem; color: rgb(168, 85, 247);"></i>
+                            <div>
+                                <div class="stat-number"><%= readers %></div>
+                                <div class="stat-label">Aylık Okuyucular</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

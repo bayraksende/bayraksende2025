@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Urbatek Çalışan Portalı</title>
+    <link rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="/" class="nav-logo">Urbatek Portal</a>
+            <div class="nav-links">
+                <a href="/admin" class="nav-link">Admin Paneli</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="admin-grid">
+            <div class="card total-balance">
+                <div class="card-header">
+                    <h2>Mevcut Bakiye</h2>
+                </div>
+                <p class="balance">null₺</p>
+            </div>
+            
+            <div class="card send-money">
+                <div class="card-header">
+                    <h2>Bakiye Gönder</h2>
+                </div>
+                <form id="sendMoneyForm" class="send-money-form" action="/api/bakiye-gonder" method="POST" enctype="application/x-www-form-urlencoded">                    
+                    <select id="employeeSelect" name="id" required>
+                        <option value="">Çalışan Seç</option>
+                    </select>
+                    <input type="number" name="bakiye" placeholder="bakiye" required>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+        </div>
+        <div class="card employee-list">
+            <div class="card-header">
+                <h2>Çalışan Listesi</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ad</th>
+                            <th>E-posta</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Pozisyon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function fetchEmployees() {
+            try {
+                const response = await fetch('/api/calisanlar');
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    if(response.status == 401) {
+                        window.location.href = '/yetkisiz.html';
+                    } else if (response.status == 403) {
+                        window.location.href = '/yetkisiz.html';
+                    }
+                }
+                const employees = await response.json();
+
+                const tableBody = document.getElementById('employeeTableBody');
+                const employeeSelect = document.getElementById('employeeSelect');
+
+                tableBody.innerHTML = '';
+                employeeSelect.innerHTML = '<option value="">Çalışan Seç</option>';
+
+                employees.users.forEach(employee => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${employee.name} ${employee.surname}</td>
+                        <td>${employee.email}</td>
+                        <td>${employee.username}</td>
+                        <td>${employee.position}</td>
+                    `;
+                    tableBody.appendChild(row);
+
+                    const option = document.createElement('option');
+                    option.name = "id";
+                    option.value = employee.id;
+                    option.textContent = employee.name;
+                    employeeSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Kullanıcılar alınırken bir hata oluştu:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchEmployees);
+    </script>
+</body>
+</html>

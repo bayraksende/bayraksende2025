@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbatek - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <img src="images/urba-logo.png" alt="Urbatek Logo">
+            </a>
+            <div class="nav-links">
+                <a href="/" >İletişim</a>
+                <a href="/admin" class="active">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Section -->
+    <section class="admin-section">
+        <div class="admin-hero fade-in">
+            <h1>Admin Panel</h1>
+            <p>Gelen Mesajlar</p>
+            <div class="flag-container">
+                <p class="flag">Flag: <%= process.env.FLAG %></p>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="messages-container fade-in">
+                <div class="messages-list">
+                    <% if (messages && messages.length > 0) { %>
+                        <% messages.forEach(function(message) { %>
+                            <div class="message-card">
+                                <div class="message-header">
+                                    <span class="message-icon"><%= message.icon || '📩' %></span>
+                                    <span class="message-type"><%= message.subject || 'message' %></span>
+                                    <span class="message-timestamp">
+                                        <%= new Date(message.timestamp).toLocaleString('tr-TR') %>
+                                    </span>
+                                </div>
+                                <div class="message-body">
+                                    <p><%= message.text %></p>
+                                </div>
+                                <div class="message-footer">
+                                    <span class="message-user">Gönderen: <%= message.userName %></span>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="no-messages">
+                            <p>Henüz hiç mesaj yok.</p>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .admin-section {
+            padding: 2rem;
+            min-height: calc(100vh - 80px);
+            background-color: #f4f4f9;
+        }
+
+        .admin-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-hero h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-hero p {
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+
+        .messages-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .message-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .message-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .message-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .message-type {
+            background: #3498db;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .message-timestamp {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        .message-body {
+            padding: 1rem 0;
+        }
+
+        .message-body p {
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .message-footer {
+            padding-top: 0.5rem;
+            border-top: 1px solid #e1e8ed;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .message-user {
+            font-weight: 500;
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 8px;
+            color: #7f8c8d;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .no-messages p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .flag-container {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #2ecc71;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .flag {
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</body>
+</html>

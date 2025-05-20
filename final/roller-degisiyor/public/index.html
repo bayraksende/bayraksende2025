@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbatek - İletişim</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <img src="images/urba-logo.png" alt="Urbatek Logo">
+            </a>
+            <div class="nav-links">
+                <!-- <a href="/admin">Mesajları Gör</a> -->
+                <a href="/" class="active">İletişim</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-hero fade-in">
+            <h1>İletişim</h1>
+            <p>Anonim olarak bizimle iletişime geçin</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info fade-in">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adres</h3>
+                    <p>Teknopark İstanbul<br>Sanayi Mahallesi, Teknopark Bulvarı <br>Pendik/İstanbul</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-posta</h3>
+                </div>
+            </div>
+
+            <div class="contact-form-container fade-in">
+                <h2>Mesaj Gönderin</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Urbatek</h3>
+                <p>Geleceği şekillendiriyoruz</p>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <p><a href="https://www.instagram.com/urbatek_tr/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Urbatek. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>

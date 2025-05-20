@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+  display: none;
+}
+
+.modal.active {
+  display: flex;
+}

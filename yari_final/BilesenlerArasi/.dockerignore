@@ -1,0 +1,72 @@
+# Docker specific
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+
+# Environment files
+.env
+.env.local
+.env.*
+.env.*.local
+
+# Dependency directories
+vendor/
+node_modules/
+
+# Cache and logs
+storage/logs/
+storage/framework/cache/
+storage/framework/views/
+storage/framework/sessions/
+*.log
+*.cache
+
+# Development tools
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# Testing
+.phpunit.result.cache
+tests/
+phpunit.xml
+
+# Build artifacts
+build/
+dist/
+public/storage
+public/hot
+
+# Composer files (except composer.json and composer.lock)
+composer.phar
+composer.lock.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PHP specific
+.php_cs
+.php_cs.cache
+.phpunit.result.cache
+phpstan.neon
+phpstan.neon.dist
+psalm.xml
+psalm.xml.dist
+
+# Deployment files
+deploy.php
+deploy/

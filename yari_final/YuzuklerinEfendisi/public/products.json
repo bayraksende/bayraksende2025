@@ -1,0 +1,39 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Tansiyon Ölçüm Aleti",
+            "description": "Otomatik Ve Kolay Ölçümü Sayesinde Tek Yapılması Gereken Manşonu Kolunuza Geçirmek Ve Kolunuzu Kalbiniz İle Aynı Hizada Tutarak Ölçüm Sonuçlarını Beklemek.",
+            "price": 993.98,
+            "image": "/img/tansiyon-aleti.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Şeker Ölçüm Cihazı",
+            "description": "Kan şekeri seviyenizi hızlı ve doğru bir şekilde ölçer.",
+            "price": 876.99,
+            "image": "/img/seker-aleti.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Akıllı Saat",
+            "description": "Günlük aktivitelerinizi takip eder ve sağlık verilerinizi kaydeder.",
+            "price": 800.75,
+            "image": "/img/akilli-saat.jpg"
+        },
+    {
+            "id": 4,
+            "name": "Akıllı Saat Pili",
+            "description": "Akıllı Saatler İçin Yedek Pil",
+            "price": 50.75,
+            "image": "/img/akilli-saat.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Akıllı Yüzük",
+            "description": "Sağlık ve fitness verilerinizi izler.",
+            "price": 1092.25,
+            "image": "/img/akilli-yuzuk.jpg"
+        }
+    ]
+}

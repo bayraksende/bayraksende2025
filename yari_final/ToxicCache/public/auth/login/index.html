@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="/style/login_style.css">
+    <link rel="icon" href="/img/logo.png">
+
+</head>
+    <div class="container">
+        <h2>Giriş Yap</h2>
+        <form id="loginForm">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" name="username" id="username" required><br><br>
+            <label for="password">Parola:</label>
+            <input type="password" name="password" id="password" required><br><br>
+            <input type="button" name="Sign In" onclick="submitForm()" value="Giriş Yap">
+        </form> 
+        <div class="error">
+                    </div>
+        <div class="link">
+          Bir hesabın yok mu? <a href="/auth/register">Kayıt Ol</a>
+          <label for="login_status" id="login_status" style="color: red;"></label>
+        </div>
+        <div class="homepage-button">
+            <a href="/">Ana Sayfa</a>
+        </div>
+    </div>
+    <script>
+
+        function submitForm(){
+            var form = document.getElementById("loginForm")
+            var formData = new FormData(form)
+            fetch("/auth/login",{
+                method: "POST",
+                headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success){
+                    window.location.href = "/blog"
+                } else document.getElementById("login_status").innerText = data.message
+            })
+            .catch(err => {
+                console.error(err)
+            })
+        }
+
+        document.getElementById('password').addEventListener('keyup', function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            submitForm();
+        }
+        });
+    </script>
+</body>
+</html>

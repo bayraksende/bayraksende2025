@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
+</head>
+<body>
+    <div class="container">
+        <h1>Messages</h1>
+        <p>Welcome, <%= user.name %>!</p>
+        <form id="message-form">
+            <textarea id="message-text" placeholder='{"text": "Your message", "icon": "👋", "type": "info"}' required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        // Son mesajı SweetAlert ile göster
+        <% if (lastMessage) { %>
+            Swal.fire({
+                title: '<%= lastMessage.type === "info" ? "Information" : "Message" %>',
+                text: '<%= lastMessage.text %>',
+                icon: '<%= lastMessage.type === "info" ? "info" : "success" %>',
+                confirmButtonText: 'OK',
+                footer: '<%= lastMessage.icon %>'
+            });
+        <% } %>
+
+        // Mesaj gönderme işlemi
+        document.getElementById('message-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageInput = document.getElementById('message-text').value;
+
+            try {
+                // JSON formatını kontrol et
+                const messageData = JSON.parse(messageInput);
+
+                const response = await fetch('/message', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: messageData }),
+                });
+
+                const result = await response.json();
+                if (result.ok) {
+                    location.reload(); // Sayfayı yenileyerek yeni mesajı yükle
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Failed to send the message.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: 'Invalid JSON!',
+                    text: 'Please enter a valid JSON object.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
