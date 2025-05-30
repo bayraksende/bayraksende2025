@@ -1,3 +1,35 @@
+# Metin Girin...
+
+|    |  |
+| ------------- |:-------------:|
+| Zorluk        | Kolay(200 Puan)|
+| Aşama         | Yarı Final    |
+| Soru Türü     | Web |
+| Yazar         | [Rednexie](https://github.com/Rednexie) |
+
+
+### Sorunun alakalı olduğu alanlar
+- Web Uygulama Güvenliği 
+
+## Soru Açıklaması
+``` 
+Gelip geçen herkesin metin girdiği bu platformdaki ilk dosyanın kodunu okuyabilir misin? Ama dikkat et, metinler şifreli.
+```
+
+## İpuçları
+```
+$oid _id
+__v
+```
+
+## Bayrak
+```
+BayrakBende{T4r1hd3rs1d3ğ1l4m4_4t4türkl3rk4ğ1d1md4}
+```
+
+
+# WriteUp 
+
 ## Sistemin Anlaşılması
 Elimizde, metin girmemize ve bu metinleri bize verilen linkler sayesinde insanlarla paylaşmamıza yarayan bir platform var. Bu platformu kullanırken giden istekleri incelediğimizde, JSON tipinde dönen yanıtların hepsinde '_id' ve '__v' alanları var. Bu alanları ve değerlerini incelediğimizde, sunucuda veritabanı olarak mongodb kullanılıyor olması ihtimalini düşünebiliriz. Ayrıca isteklerimizdeki JSON tipinde giden verilerde de '_id' alanı olmasıi ayrıca sunucu yanıt başlıklarında sunucunun yazıldığı yazılım kütüphanesini ifade eden 'x-powered-by' başlığının değerinin express olması, Express.js ile MongoDB kütüphanesinin kullanılıyor olduğunu bize kanıtlar niteliktedir.
 ## Potansiyel Güvenlik Açıklarının Analizi
