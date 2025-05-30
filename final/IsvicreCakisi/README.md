@@ -13,9 +13,6 @@
 Sizi, bu İsviçre çakısı misali platforma yönlendiriyoruz.
 ```
 
-### Sorunun alakalı olduğu alanlar
-- Web Güvenliği
-
 ## İpuçları
 ```
 Bu ipucu, sizden aldığı bir şeyle sizi çözüme yönlendirecek.
@@ -147,7 +144,7 @@ https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app
 ```stdout
 2025-05-30T12:34:56.789Z
 IP: xxx.xxx.xxx.xxxx
-Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...
+Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&next=...
 ```
 
 
