@@ -8,20 +8,11 @@
 | Soru Türü     | Miscellaneous |
 | Dosyalar      | raket.apk     |
 | Yazar         | [Rednexie](https://github.com/Rednexie) |
-
-### Sorunun alakalı olduğu alanlar
-- Android Uygulama Güvenliği
-- Web Uygulama Güvenliği 
-
-
+ 
 ## Soru Açıklaması
 ```
 Pinpon topunu sunuculara at, uyanıklarsa sana geri göndereceklerdir.
-```
-
-### Sorunun alakalı olduğu alanlar
-- Web Güvenliği
-- Android 
+``` 
 
 ## İpuçları
 ```
