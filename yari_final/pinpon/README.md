@@ -1,4 +1,48 @@
-### Çözüm
+
+# Pinpon
+
+|    |  |
+| ------------- |:-------------:|
+| Zorluk        | Çerez(100 Puan)|
+| Aşama         | Yarı Final    |
+| Soru Türü     | Miscellaneous |
+| Dosyalar      | raket.apk     |
+| Yazar         | [Rednexie](https://github.com/Rednexie) |
+
+### Sorunun alakalı olduğu alanlar
+- Android Uygulama Güvenliği
+- Web Uygulama Güvenliği 
+
+
+## Soru Açıklaması
+```
+Pinpon topunu sunuculara at, uyanıklarsa sana geri göndereceklerdir.
+```
+
+## Soru Açıklaması 2
+```
+Sana pinpon topunu sunuculara gönderebilmen ve onlardan dönüt alabilmen için bir raket veriyoruz. Bu raket sadece pinpon topu yollamaya yaramıyor olsa gerek.
+```
+
+### Sorunun alakalı olduğu alanlar
+- Web Güvenliği
+- Android 
+
+## İpuçları
+```
+YOK
+```
+
+## Bayrak
+```
+BayrakBende{5unucu_ö1dühttp}
+```
+
+
+
+
+
+# WriteUp
 
 ## Ağ İzleme Kurulumunun Yapılması
 Android uygulamamızı açtığımızda karşımızda verilen IP adresine ICMP ping isteği atmamıza yarayan bir sistem çıkacaktır. Bu sistem komutu Android cihazımızda yürüterek değil, bir API aracılığıyla çalışmaktadır.
