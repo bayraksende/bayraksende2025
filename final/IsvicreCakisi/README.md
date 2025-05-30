@@ -131,5 +131,15 @@ server.listen(3000);
 
 Kodu çalıştırdığımda, sunucum cihazın 3000 portunda hazır bekliyor olacak. Bu portu ngrok reverse proxy kullanarak dışarı çıkaracağım, ki tüm kullanıcılar dolayısıyla da adminimiz erişebilsin.
 
+```sh
+ngrok http 3000
+```
+
+Bu bize çıktı olarak tüm herkesin erişebileceği bir url verecektir, örneğin:
+
+
+`https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app`
+
+
 
 
