@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
     const now = new Date();
     const ip = req.socket.remoteAddress;
     const referer = req.headers.referer || 'none';
-    console.log(`${now.toISOString()} - IP: ${ip}, Referer: ${referer}`);
+    console.log(`${now.toISOString()}\nIP: ${ip}\nReferer: ${referer}`);
     res.end();
 });
 
@@ -143,7 +143,9 @@ https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app
 
 
 ```stdout
-2025-05-30T12:34:56.789Z - IP: ::ffff:127.0.0.1, Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...
+2025-05-30T12:34:56.789Z
+IP: ::ffff:127.0.0.1
+Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...
 ```
 
 
