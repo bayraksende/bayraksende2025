@@ -6,10 +6,7 @@
 | Aşama         | Yarı Final    |
 | Soru Türü     | Web |
 | Yazar         | [Rednexie](https://github.com/Rednexie) |
-
-
-### Sorunun alakalı olduğu alanlar
-- Web Uygulama Güvenliği 
+ 
 
 ## Soru Açıklaması
 ``` 
