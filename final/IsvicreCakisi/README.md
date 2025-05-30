@@ -5,7 +5,7 @@
 | Zorluk        | Orta(320 Puan)|
 | Aşama         | Final         |
 | Soru Türü     | Web Güvenliği |
-| Çözümler      |               |
+| Yazar         | [Rednexie](https://github.com/Rednexie) |
 
 
 ## Soru Açıklaması
