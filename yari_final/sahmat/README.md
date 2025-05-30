@@ -7,12 +7,7 @@
 | Soru Türü     | Miscellaneous |
 | Dosyalar      | sms.apk       |    
 | Yazar         | [Rednexie](https://github.com/Rednexie) | 
-
-
-### Sorunun alakalı olduğu alanlar
-- Android Uygulama Güvenliği
-- Web Uygulama Güvenliği 
-
+ 
 
 ## Soru Açıklaması
 ```
