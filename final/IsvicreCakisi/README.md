@@ -131,9 +131,9 @@ Bu bize çıktı olarak tüm herkesin erişebileceği bir url verecektir, örne�
 
 ```formdata
 ------WebKitFormBoundarym7tRlaLaR4ztC8jN
-Content-Disposition: form-data; name="admin"
+Content-Disposition: form-data; name="username"
 
-kullanici_adi
+admin
 ------WebKitFormBoundarym7tRlaLaR4ztC8jN
 Content-Disposition: form-data; name="next"
 
