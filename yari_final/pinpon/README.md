@@ -19,11 +19,6 @@
 Pinpon topunu sunuculara at, uyanıklarsa sana geri göndereceklerdir.
 ```
 
-## Soru Açıklaması 2
-```
-Sana pinpon topunu sunuculara gönderebilmen ve onlardan dönüt alabilmen için bir raket veriyoruz. Bu raket sadece pinpon topu yollamaya yaramıyor olsa gerek.
-```
-
 ### Sorunun alakalı olduğu alanlar
 - Web Güvenliği
 - Android 
