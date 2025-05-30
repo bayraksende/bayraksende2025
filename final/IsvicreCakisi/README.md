@@ -142,7 +142,9 @@ https://xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app
 İsteğimizi gönderip sunucu konsolumuza baktığımzda, aşağıdakine benzer bir çıktı gelecektir:
 
 
-`2025-05-30T12:34:56.789Z - IP: ::ffff:127.0.0.1, Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...`
+```stdout
+2025-05-30T12:34:56.789Z - IP: ::ffff:127.0.0.1, Referer: http://soru.bayraksende.com:2999/reset-password?token=fa18d596-6557-47c0-b148-bed4cb96de30&mext=...
+```
 
 
 Bu url'nin uuid token'a olan kısmını alarak ziyaret ettiğimizde, admin kullanıcısı için şifre sıfırlama erişimi elde etmekteyiz. Şifremizi sıfırlayıp yeni şifremiz ile giriş yapabiliriz.
