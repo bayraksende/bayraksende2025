@@ -85,7 +85,7 @@ Peki, bu düzenlenen payload'da kullanıcı adını yöneticilerin kullanıcı a
 
 Şifre sıfırlama bağlantılarının formatını inceleyelim:
 
-```
+```url
 http://soru.bayraksende.com:2999/reset-password?token=fc8eba6f-dfb3-4776-9a4c-503417303a78&next=http://soru.bayraksende.com:2999/login
 ```
 
